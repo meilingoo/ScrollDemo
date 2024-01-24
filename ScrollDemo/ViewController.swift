@@ -39,6 +39,8 @@ class ViewController: UIViewController {
 }
 
 
+
+
 //缩放scroll View的子视图的三个步骤
 //1.设置scroll View最大最小系数maxinumZoomScale，在storyboard找到zoom
 //  minimunZoomScale
