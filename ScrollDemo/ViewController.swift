@@ -34,7 +34,7 @@ class ViewController: UIViewController {
 //默认情况image view不会响应手势，要想UI image view响应在storyboard属性栏里勾选User Interaction Enabled
 //实现点击image view弹出系统相册选择其他图片
         let picker = UIImagePickerController()
-        //test confilct
+        // test for meling
     }
     
 }
