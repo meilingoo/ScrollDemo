@@ -34,7 +34,10 @@ class ViewController: UIViewController {
 //默认情况image view不会响应手势，要想UI image view响应在storyboard属性栏里勾选User Interaction Enabled
 //实现点击image view弹出系统相册选择其他图片
         let picker = UIImagePickerController()
-        // test for meling
+//UIImagePickerController()是一个提供选图的控制器，选完图片后的操作由我们自己定义，选完图片告诉代理，让代理执行操作
+        picker.delegate = self
+//present模态跳转
+        present(picker, animated: true, completion: nil)
     }
     
 }
@@ -50,5 +53,16 @@ class ViewController: UIViewController {
 extension ViewController: UIScrollViewDelegate{
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         imageView
+    }
+}
+
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//[UIImagePickerController.InfoKey : Any]是dictionary， key:value
+//        这一行表示选择完图片让选图控制器消失,选中图片后选图页面消失
+        picker.dismiss(animated: true, completion: nil)
+//.originalImage
+        imageView.image = info[.originalImage] as? UIImage
     }
 }
